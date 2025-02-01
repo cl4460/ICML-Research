@@ -204,7 +204,6 @@ def main():
     # ========= 配置路径 (根据需要自行修改) =========
     input_parquet_path = "/Users/chengze/Desktop/musique_ans_v1.0_dev_175sample.parquet"
     main_folder_path = "/Users/chengze/Desktop/NaiveRAG_MuSiQue"
-    openai_api_key = "REMOVED"
 
     # 读取 Parquet
     df = pd.read_parquet(input_parquet_path)
@@ -230,7 +229,6 @@ def main():
     hyde_obj = HyDE(hyde_config, promptor)
 
     # 初始化 GPT-4 客户端
-    openai_client = OpenAI(api_key=openai_api_key)
 
     # 处理批量问题
     print("\nStarting batch processing with HyDE + GPT-4 evaluation...")

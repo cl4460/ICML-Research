@@ -8,7 +8,6 @@ from datetime import datetime
 from Graphrag.Graghrag import init_global_search, init_local_search,count_tokens
 
 
-OPENAI_API_KEY = "REMOVED"  
 HOTPOT_FOLDER = "/Users/chengze/Desktop/GraphRAG_MultiHopRAG"
 INPUT_PARQUET = "/Users/chengze/Desktop/MultiHopRAG_375_sampled.parquet"
 INPUT_DIR = os.path.join(HOTPOT_FOLDER, "output")
@@ -52,9 +51,7 @@ def main():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_file = os.path.join(results_dir, f"qa_results_{timestamp}.json")
 
-    search_engine = init_local_search(INPUT_DIR,api_key=OPENAI_API_KEY)
     print("\nStarting batch processing...")
-    df = process_question_batch(df, search_engine, OpenAI(api_key=OPENAI_API_KEY), output_file)
     total_questions = len(df)
     avg_time = sum(df['processing_time']) / total_questions if total_questions > 0 else 0
     avg_tokens = sum(df['retrieval_tokens']) / total_questions if total_questions > 0 else 0

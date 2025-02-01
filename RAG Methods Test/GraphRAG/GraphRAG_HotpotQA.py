@@ -10,7 +10,6 @@ from Graphrag.Graghrag import init_global_search,count_tokens
 import asyncio
 
 
-OPENAI_API_KEY = "REMOVED"  
 HOTPOT_FOLDER = "/Users/chengze/Desktop/GraphRAG_Musique"
 INPUT_PARQUET = "/Users/chengze/Desktop/musique_ans_v1.0_dev_175sample.parquet"
 INPUT_DIR = os.path.join(HOTPOT_FOLDER, "output")
@@ -154,9 +153,7 @@ def main():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_file = os.path.join(results_dir, f"qa_results_{timestamp}.json")
 
-    search_engine = init_global_search(INPUT_DIR,api_key=OPENAI_API_KEY)
     print("\nStarting batch processing...")
-    results = asyncio.run(process_question_batch(df, search_engine, OpenAI(api_key=OPENAI_API_KEY), output_file))
     total_questions = len(results)
     avg_time = sum(r['processing_time'] for r in results) / total_questions if total_questions > 0 else 0
     

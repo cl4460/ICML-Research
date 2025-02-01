@@ -186,7 +186,6 @@ def analyze_results(json_file_path: str):
 ########################################
 def main():
     # ========== 配置信息 ==========
-    OPENAI_API_KEY = "REMOVED"
     
     # 读取配置文件
     with open('Nconfig.yaml', 'r', encoding='utf-8') as f:
@@ -214,7 +213,6 @@ def main():
     output_file = os.path.join(results_dir, f"qa_results_{timestamp}.json")
     
     # 初始化 OpenAI 客户端
-    openai_client = OpenAI(api_key=OPENAI_API_KEY)
     
     # ========== 执行检索+回答 ==========
     print("\nStarting batch processing with NaiveRAG and GPT-4 evaluation...")

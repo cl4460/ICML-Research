@@ -29,7 +29,6 @@ def count_tokens(text: str, model: str = "gpt-4") -> int:
     tokens = encoding.encode(text)
     return len(tokens)
 
-OPENAI_API_KEY = "REMOVED"  
 HOTPOT_FOLDER = "/Users/chengze/Desktop/TGRAG_MultiHop_indexing"
 INPUT_PARQUET = "/Users/chengze/Desktop/MultiHopRAG_375_sampled.parquet"
 INPUT_DIR = os.path.join(HOTPOT_FOLDER, "output")
